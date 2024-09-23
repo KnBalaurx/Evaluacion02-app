@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".AGtarea" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar3"
+            android:layout_width="472dp"
+            android:layout_height="549dp"
+            android:background="@color/gris"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.453" />
+
+        <Button
+            android:id="@+id/button14"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="44dp"
+            android:background="@color/cyan"
+            android:backgroundTint="@color/cyan"
+            android:backgroundTintMode="add"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="login"
+            android:text="@string/btnIngresar"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorLink="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.623" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="409dp"
+            android:layout_height="67dp"
+            android:fontFamily="@font/roboto_bold"
+            android:hint="@string/contraseniaa"
+            android:text="@string/agRamo"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/white"
+            android:textSize="38sp"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.226" />
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:text="@string/nmRamo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.327" />
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:text="@string/scRamo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.401" />
+
+        <EditText
+            android:id="@+id/editTextText4"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:text="@string/prRamo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.481" />
+
+        <EditText
+            android:id="@+id/editTextText5"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:text="@string/Tipo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.551" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

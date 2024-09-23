@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">AppFlowTask01</string>
+    <string name="correo">Correo Electronico</string>
+    <string name="contraseniaa">Contraseña</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="btnRegistrar">Registrarse</string>
+
+    <string name="registro">Registro</string>
+
+    <string name="inicio">Inicio</string>
+    <string name="Agregar">Agregar</string>
+    <string name="buscar">Buscar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="Ramo">Ramo</string>
+    <string name="tarea">Tarea / Evaluacion</string>
+    <string name="rutina">Rutina</string>
+    <string name="Proyecto">Proyecto</string>
+
+    <string name="agRamo">Agregar Ramo</string>
+    <string name="nmRamo">Nombre Ramo</string>
+    <string name="scRamo">Seccion</string>
+    <string name="prRamo">Nombre Profesor</string>
+    <string name="Tipo">Tipo</string>
+
+    <string name="nom">Nombre</string>
+    <string name="apel">Apellido</string>
+    <string name="enero">Genero</string>
+
+
+    <string name="TyC">Acepto los terminos y condiciones</string>
+
+    <string name="ram1">Aplicaciones moviles para IOT</string>
+    <string name="ram2">programacion back end</string>
+</resources>

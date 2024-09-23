@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".Buscar" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button7"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:background="@color/gris"
+            android:backgroundTint="@color/gris"
+            android:backgroundTintMode="add"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/ram1"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorLink="@color/white"
+            app:icon="@drawable/baseline_arrow_back_ios_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179"
+            app:strokeColor="@color/gris" />
+
+        <Button
+            android:id="@+id/button8"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:background="@color/gris"
+            android:backgroundTint="@color/gris"
+            android:backgroundTintMode="add"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/ram2"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorLink="@color/white"
+            app:icon="@drawable/baseline_arrow_back_ios_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.286"
+            app:strokeColor="@color/gris" />
+
+        <SearchView
+            android:layout_width="361dp"
+            android:layout_height="49dp"
+            android:background="@color/gris"
+            android:closeIcon="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.063" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
