@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         EditText campo2= this.findViewById(R.id.contraLG);
         String contra = campo2.getText().toString();
 
-        if(correo.equals("aa@admin.cl") && contra.equals("123")) {
+        if(correo.equals("a") && contra.equals("a")) {
             Intent i = new Intent(this, home1.class);
             startActivity(i);
         }else{

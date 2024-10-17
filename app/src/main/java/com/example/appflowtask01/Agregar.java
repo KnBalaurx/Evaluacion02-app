@@ -2,7 +2,10 @@ package com.example.appflowtask01;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,36 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Agregar extends Fragment {
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Primer botón para cambiar a AGtarea
+        view.findViewById(R.id.btnTarea).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.contenedor, new AGtarea());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        // Segundo botón para cambiar a otro fragmento (por ejemplo, AGproyecto)
+        view.findViewById(R.id.btnRamo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.contenedor, new agRamo());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+    }
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

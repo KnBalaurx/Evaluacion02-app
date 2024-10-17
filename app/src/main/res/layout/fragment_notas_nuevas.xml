@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".notasNuevas">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="335dp"
+            android:layout_height="75dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="start|top"
+            android:hint="@string/titulo"
+            android:inputType="textMultiLine"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gris"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.64"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.042" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine3"
+            android:layout_width="357dp"
+            android:layout_height="695dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="start|top"
+            android:hint="@string/des"
+            android:inputType="textMultiLine"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gris"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="31dp"
+            android:layout_height="30dp"
+            android:background="@drawable/baseline_save_24"
+            android:src="@drawable/baseline_save_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

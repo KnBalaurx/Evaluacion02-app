@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "410292297078",
+    "project_id": "eva-3-app",
+    "storage_bucket": "eva-3-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410292297078:android:7c52798d614afd4194ee57",
+        "android_client_info": {
+          "package_name": "com.example.appflowtask01"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_P2425_1NdLMHIQAUP8gLzX-6PJVw4JY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
