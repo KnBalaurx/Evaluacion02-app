@@ -23,7 +23,7 @@
     <string name="Tipo">Tipo</string>
 
     <string name="agtarea">Agregar Tarea / Evaluacion</string>
-    <string name="fechaEntrega">Fecha Entrega....</string>
+    <string name="fechaEntrega">Fecha Entrega (dd/mm/aaaa)</string>
 
 
     <string name="nom">Nombre</string>
@@ -38,6 +38,19 @@
     <string name="des">Descripcion.....</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="agProyeto">Agregar Proyecto</string>
+    <string name="tipoTr">Tipo...</string>
+    <string name="cantIntegrantes">Cantidad de integrantes</string>
+    <string name="rutinas"> Mis rutinas</string>
+    <string name="mNotas"> Mis Notas</string>
+    <string name="nameR">Nombre de la Rutina</string>
+    <string name="timeR">Tiempo de estudio: 0 min</string>
+    <string name="timeDR">Tiempo de descanso: 0 min</string>
+    <string name="interR">Intervalos de descanso: 0 </string>
+    <string name="cronoR">00:00:00</string>
+    <string name="btnInicio">Inicio</string>
+
 
 
 </resources>

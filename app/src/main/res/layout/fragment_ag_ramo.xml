@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,27 +26,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.328" />
 
-        <Button
-            android:id="@+id/button14"
-            style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="44dp"
-            android:background="@color/cyan"
-            android:backgroundTint="@color/cyan"
-            android:backgroundTintMode="add"
-            android:fontFamily="@font/roboto_medium"
-            android:onClick="login"
-            android:text="@string/btnIngresar"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorLink="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.668" />
-
         <TextView
             android:id="@+id/textView2"
             android:layout_width="364dp"
@@ -66,7 +46,8 @@
             app:layout_constraintVertical_bias="0.176" />
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/nomRamo"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="330dp"
             android:layout_height="45dp"
             android:background="@color/white"
@@ -83,7 +64,7 @@
             app:layout_constraintVertical_bias="0.291" />
 
         <EditText
-            android:id="@+id/editTextText5"
+            android:id="@+id/secRamo"
             android:layout_width="330dp"
             android:layout_height="45dp"
             android:background="@color/white"
@@ -100,7 +81,7 @@
             app:layout_constraintVertical_bias="0.389" />
 
         <EditText
-            android:id="@+id/editTextText6"
+            android:id="@+id/prRamo"
             android:layout_width="330dp"
             android:layout_height="45dp"
             android:background="@color/white"
@@ -117,7 +98,7 @@
             app:layout_constraintVertical_bias="0.478" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/TipoRamo"
             android:layout_width="330dp"
             android:layout_height="45dp"
             android:background="@color/white"
@@ -129,6 +110,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.573" />
 
+        <Button
+            android:id="@+id/btnAgRamo"
+            android:layout_width="330dp"
+            android:layout_height="45dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.68" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</androidx.cardview.widget.CardView>

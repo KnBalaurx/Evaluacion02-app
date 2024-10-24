@@ -33,7 +33,6 @@ public class Agregar extends Fragment {
             }
         });
 
-        // Segundo botón para cambiar a otro fragmento (por ejemplo, AGproyecto)
         view.findViewById(R.id.btnRamo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,9 +42,17 @@ public class Agregar extends Fragment {
                 transaction.commit();
             }
         });
+
+        view.findViewById(R.id.btnProyecto).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.contenedor, new agProyecto());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
-
-
 
 
     // TODO: Rename parameter arguments, choose names that match

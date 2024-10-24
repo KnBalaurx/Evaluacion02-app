@@ -6,8 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:onClick="Register"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -26,16 +35,15 @@
         android:id="@+id/materialToolbar2"
         android:layout_width="456dp"
         android:layout_height="123dp"
-        android:layout_marginTop="106dp"
+        android:layout_marginTop="90dp"
         android:background="@color/gris"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView7"
@@ -87,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/correoLg" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnIngresar"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
         android:layout_width="260dp"
         android:layout_height="50dp"
@@ -107,40 +115,34 @@
         app:layout_constraintTop_toBottomOf="@+id/contraLG" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnGoRegister"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
         android:layout_width="260dp"
         android:layout_height="50dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="148dp"
         android:background="@color/cyan"
-        android:onClick="Registro"
         android:text="@string/btnRegistrar"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/btnIngresar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnIngresar"
+        app:layout_constraintTop_toBottomOf="@+id/btnIngresar"
         app:rippleColor="@color/cyan" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="41dp"
         android:layout_height="23dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         android:text="O"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.471" />
-
-    <include
-        layout="@layout/toolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="86dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
+        app:layout_constraintEnd_toEndOf="@+id/btnIngresar"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/btnIngresar"
+        app:layout_constraintTop_toBottomOf="@+id/btnIngresar"
+        app:layout_constraintVertical_bias="0.372" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

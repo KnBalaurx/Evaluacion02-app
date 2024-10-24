@@ -5,46 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".AGtarea" >
+    tools:context=".AGtarea">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="626dp">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/materialToolbar3"
-            android:layout_width="368dp"
-            android:layout_height="562dp"
-            android:background="@color/gris"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
-
-        <Button
-            android:id="@+id/button14"
-            style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="44dp"
-            android:background="@color/cyan"
-            android:backgroundTint="@color/cyan"
-            android:backgroundTintMode="add"
-            android:fontFamily="@font/roboto_medium"
-            android:onClick="login"
-            android:text="@string/btnIngresar"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorLink="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.828" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@color/gris"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView2"
@@ -66,82 +34,83 @@
             app:layout_constraintVertical_bias="0.029" />
 
         <EditText
-            android:id="@+id/editTextText4"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
+            android:id="@+id/tituloTr"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/titulo"
             android:inputType="text"
-            android:paddingLeft="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.192" />
+            android:paddingLeft="10dp" />
 
         <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
+            android:id="@+id/FentregaTr"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/fechaEntrega"
             android:inputType="date"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.292" />
+            android:paddingLeft="10dp" />
+
+        <Spinner
+            android:id="@+id/spinnerTipo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:entries="@array/Tipo" />
+
+        <Spinner
+            android:id="@+id/spinner_ramos"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLine4"
-            android:layout_width="331dp"
-            android:layout_height="110dp"
+            android:id="@+id/descTr"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:ems="10"
-            android:fontFamily="@font/roboto_medium"
             android:gravity="start|top"
             android:hint="@string/des"
             android:inputType="textMultiLine"
-            android:paddingLeft="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.586"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.687" />
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
-            android:background="@color/white"
-            android:entries="@array/ramoTipo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.566"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.395" />
+        <Button
+            android:id="@+id/btnIngresarTr"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/btnIngresar"
+            android:textSize="16sp" />
 
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </LinearLayout>
 </FrameLayout>

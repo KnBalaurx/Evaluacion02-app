@@ -65,7 +65,7 @@
             app:layout_constraintVertical_bias="0.452" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnProyecto"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
             android:layout_width="330dp"
             android:layout_height="70dp"

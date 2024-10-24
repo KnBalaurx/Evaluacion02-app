@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_nombre_rutina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la rutina"/>
+
+    <EditText
+        android:id="@+id/et_tiempo_estudio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tiempo de estudio (min)"/>
+
+    <EditText
+        android:id="@+id/et_tiempo_descanso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tiempo de descanso (min)"/>
+
+    <EditText
+        android:id="@+id/et_intervalo_descanso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Intervalo de descanso (min)"/>
+
+    <Button
+        android:id="@+id/btn_guardar_rutina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar Rutina"/>
+
+</LinearLayout>

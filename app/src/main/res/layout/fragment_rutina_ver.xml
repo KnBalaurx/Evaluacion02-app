@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp"
+    android:background="@color/gris"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/tv_nombre_rutina"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/nameR"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tiempo_estudio"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/timeR"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_tiempo_descanso"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/timeDR"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_intervalo_descanso"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/interR"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/cronoR"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="34sp" />
+
+    <Button
+        android:id="@+id/btn_iniciar"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/btnInicio"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>
+

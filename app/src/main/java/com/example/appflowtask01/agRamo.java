@@ -2,63 +2,87 @@ package com.example.appflowtask01;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link agRamo#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class agRamo extends Fragment {
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Firebase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.HashMap;
+import java.util.Map;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public agRamo() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment agRamo.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static agRamo newInstance(String param1, String param2) {
-        agRamo fragment = new agRamo();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+public class agRamo extends DialogFragment {
+    Button btnAgRamo;
+    EditText nomRamo, prRamo, scRamo;
+    private FirebaseFirestore mfirestore;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ag_ramo, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_ag_ramo, container, false);
+
+        mfirestore = FirebaseFirestore.getInstance();
+
+        nomRamo = v.findViewById(R.id.nomRamo);
+        prRamo = v.findViewById(R.id.prRamo);
+        scRamo = v.findViewById(R.id.secRamo);
+        btnAgRamo = v.findViewById(R.id.btnAgRamo);
+
+        btnAgRamo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nameR = nomRamo.getText().toString().trim();
+                String profeR = prRamo.getText().toString().trim();
+                String seccionR = scRamo.getText().toString().trim();
+
+                if (nameR.isEmpty() && profeR.isEmpty() && seccionR.isEmpty()) {
+                    Toast.makeText(getContext(), "Ingresar los datos", Toast.LENGTH_SHORT).show();
+                } else {
+                    updateRamo(nameR, profeR, seccionR);
+                }
+            }
+        });
+
+        return v;
+    }
+
+    private void updateRamo(String nameR, String profeR, String seccionR) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("Nombre Ramo", nameR);
+        map.put("Nombre Profesor", profeR);
+        map.put("Seccion", seccionR);
+
+        mfirestore.collection("Ramos").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Toast.makeText(getContext(), "Actualizado exitosamente", Toast.LENGTH_SHORT).show();
+                if (getDialog() != null) {
+                    getDialog().dismiss();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Error al actualizar", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        });
     }
 }

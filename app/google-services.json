@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "410292297078",
-    "project_id": "eva-3-app",
-    "storage_bucket": "eva-3-app.appspot.com"
+    "project_number": "347247445966",
+    "project_id": "flowtaskbd",
+    "storage_bucket": "flowtaskbd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:410292297078:android:7c52798d614afd4194ee57",
+        "mobilesdk_app_id": "1:347247445966:android:5257128e4ba9068ee60d9f",
         "android_client_info": {
           "package_name": "com.example.appflowtask01"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA_P2425_1NdLMHIQAUP8gLzX-6PJVw4JY"
+          "current_key": "AIzaSyCCZyIivIz7bPgBW5gek40sFpWUs_OWsbY"
         }
       ],
       "services": {

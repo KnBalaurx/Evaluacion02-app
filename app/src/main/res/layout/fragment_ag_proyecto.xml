@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".agProyecto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@color/gris"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingTop="10dp"
+            android:text="@string/agProyeto"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+
+        <EditText
+            android:id="@+id/tituloPr"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="@string/titulo"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/datePr"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="@string/fechaEntrega"
+            android:inputType="date"
+            android:paddingLeft="10dp" />
+
+        <Spinner
+            android:id="@+id/spinnerPr"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/intPr"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="@string/cantIntegrantes"
+            android:inputType="number"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/descPr"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/des"
+            android:inputType="textMultiLine"
+            android:paddingLeft="10dp" />
+
+        <Button
+            android:id="@+id/btnIngPr"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="@string/btnIngresar" />
+    </LinearLayout>
+
+</FrameLayout>
