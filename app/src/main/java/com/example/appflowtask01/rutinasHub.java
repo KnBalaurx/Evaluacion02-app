@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.appflowtask01.adapter.RutinasAdapter;
+import com.example.appflowtask01.models.EstudioRutina;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;

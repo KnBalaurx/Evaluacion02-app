@@ -1,4 +1,4 @@
-package com.example.appflowtask01;
+package com.example.appflowtask01.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.appflowtask01.models.EstudioRutina;
+import com.example.appflowtask01.R;
 
 import java.util.List;
 

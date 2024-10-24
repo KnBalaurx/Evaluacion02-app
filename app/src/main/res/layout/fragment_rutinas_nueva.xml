@@ -1,38 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="35dp"
+    android:background="@color/gris"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@color/gris"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/ingR"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/et_nombre_rutina"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre de la rutina"/>
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:background="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="@string/nameR"
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/et_tiempo_estudio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tiempo de estudio (min)"/>
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:background="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="@string/timeER2"
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/et_tiempo_descanso"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tiempo de descanso (min)"/>
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:background="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="@string/timeDR2"
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/et_intervalo_descanso"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Intervalo de descanso (min)"/>
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:background="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="@string/cantR2"
+        android:paddingLeft="10dp" />
 
     <Button
         android:id="@+id/btn_guardar_rutina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar Rutina"/>
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/guardarR" />
 
 </LinearLayout>

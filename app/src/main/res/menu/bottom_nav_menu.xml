@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_tareas"
+        android:title="Tareas" />
+
+    <item
+        android:id="@+id/action_evaluaciones"
+        android:title="Evaluaciones" />
+
+    <item
+        android:id="@+id/action_proyectos"
+        android:title="Proyectos" />
+</menu>

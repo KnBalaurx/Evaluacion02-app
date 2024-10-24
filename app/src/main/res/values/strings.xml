@@ -51,6 +51,11 @@
     <string name="cronoR">00:00:00</string>
     <string name="btnInicio">Inicio</string>
 
+    <string name="ingR">Ingrese Rutina de estudio</string>
+    <string name="timeER2">Tiempo de estudio (min)</string>
+    <string name="timeDR2">Tiempo de descanso (min)</string>
+    <string name="cantR2">Cantidad de descanso </string>
+    <string name="guardarR">Guardar rutina</string>
 
 
 </resources>

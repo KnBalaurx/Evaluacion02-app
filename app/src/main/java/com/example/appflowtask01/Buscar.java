@@ -3,62 +3,75 @@ package com.example.appflowtask01;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Buscar#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.appflowtask01.adapter.RamoAdapter;
+import com.example.appflowtask01.models.Ramo;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+
+
 public class Buscar extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Buscar() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Buscar.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Buscar newInstance(String param1, String param2) {
-        Buscar fragment = new Buscar();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    List<Ramo> ramoList = new ArrayList<>();
+    RecyclerView recyclerView;
+    RamoAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buscar, container, false);
+        View view =  inflater.inflate(R.layout.fragment_buscar, container, false);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        adapter = new RamoAdapter(ramoList, ramo -> {
+            // Acción al hacer clic en un ramo (mostrar detalles en otro fragmento)
+            Bundle bundle = new Bundle();
+            bundle.putString("nombreProfesor", ramo.getNombreProfesor());
+            bundle.putString("nombreRamo", ramo.getNombreRamo());
+            bundle.putString("seccion", ramo.getSeccion());
+
+            Fragment ramoVer = new Ramo_ver();
+            ramoVer.setArguments(bundle);
+
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.contenedor, ramoVer)
+                    .addToBackStack(null)
+                    .commit();
+        });
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Obtener datos desde Firestore
+        db.collection("Ramos")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Ramo ramo = document.toObject(Ramo.class);
+                            ramoList.add(ramo);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
+        return view;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.appflowtask01;
+package com.example.appflowtask01.models;
 
 public class EstudioRutina {
     private String nombre;

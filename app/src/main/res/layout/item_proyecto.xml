@@ -1,0 +1,48 @@
+<!-- Ejemplo de diseño simplificado para item_proyecto.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/titulo_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Título"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/descripcion_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:textSize="14sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/fecha_entrega_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha Entrega"
+        android:textSize="14sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/cantidad_integrantes_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cantidad de Integrantes"
+        android:textSize="14sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/ramo_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ramo"
+        android:textSize="14sp"
+        android:textColor="#000000" />
+</LinearLayout>
+

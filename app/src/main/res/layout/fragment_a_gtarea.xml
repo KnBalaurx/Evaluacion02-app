@@ -60,7 +60,6 @@
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/fechaEntrega"
-            android:inputType="date"
             android:paddingLeft="10dp" />
 
         <Spinner

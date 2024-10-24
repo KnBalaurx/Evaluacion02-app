@@ -80,19 +80,17 @@ public class AGtarea extends Fragment {
 
                 // Verificar que todos los campos no estén vacíos
                 if (!nombreTarea.isEmpty() && !descripcion.isEmpty() && !fechaString.isEmpty() && !ramoSeleccionado.equals("Selecciona un ramo")) {
-                    Date fechaEntrega = parseFecha(fechaString); // Convertir la fecha de String a Date
-                    if (fechaEntrega != null) {
-                        guardarTareaEnFirestore(nombreTarea, descripcion, fechaEntrega, ramoSeleccionado, tipoSeleccionado); // Pasar tipoSeleccionado como parámetro
-                    } else {
-                        Toast.makeText(getContext(), "Formato de fecha no válido", Toast.LENGTH_SHORT).show();
-                    }
+                    // Ya no es necesario convertir la fecha a Date
+                    guardarTareaEnFirestore(nombreTarea, descripcion, fechaString, ramoSeleccionado, tipoSeleccionado); // Pasar fechaString como String
                 } else {
                     Toast.makeText(getContext(), "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
         return view;
     }
+
 
 
     private void cargarDatosRamo() {
@@ -134,29 +132,46 @@ public class AGtarea extends Fragment {
         });
     }
 
-    private void guardarTareaEnFirestore(String nombreTarea, String descripcion, Date fechaEntrega, String ramoSeleccionado, String tipoSeleccionado) {
+    private void guardarTareaEnFirestore(String nombreTarea, String descripcion, String fechaEntrega, String ramoSeleccionado, String tipoSeleccionado) {
         // Crear un HashMap para almacenar los datos
         Map<String, Object> tarea = new HashMap<>();
         tarea.put("nombreTarea", nombreTarea);
         tarea.put("descripcion", descripcion);
-        tarea.put("fechaEntrega", fechaEntrega);
+        tarea.put("fechaEntrega", fechaEntrega); // Ahora es un String
         tarea.put("ramoSeleccionado", ramoSeleccionado);
 
         // Verificar si el tipo seleccionado es "Tarea" o "Evaluación"
-        String coleccionDestino;
+        String coleccionDestino = null;
 
         Log.d("SpinnerTipo", "Valor seleccionado: " + tipoSeleccionado);
-
 
         if (tipoSeleccionado.trim().equalsIgnoreCase("Tarea")) {
             coleccionDestino = "Tarea";  // Guardar en la colección "Tarea"
         } else if (tipoSeleccionado.trim().equalsIgnoreCase("Evaluacion")) {  // Sin acento
             coleccionDestino = "Evaluacion";  // Guardar en la colección "Evaluacion"
-        } else {
-            Toast.makeText(getContext(), "Por favor selecciona un tipo válido", Toast.LENGTH_SHORT).show();
-
         }
 
+        if (coleccionDestino != null) {
+            // Guardar la tarea en Firestore
+            db.collection(coleccionDestino)
+                    .add(tarea)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(getContext(), "Tarea guardada exitosamente", Toast.LENGTH_SHORT).show();
+                            limpiarFormulario();  // Limpiar el formulario tras el guardado
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.e("FirestoreError", "Error al guardar la tarea", e);
+                            Toast.makeText(getContext(), "Error al guardar la tarea", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(getContext(), "Por favor selecciona un tipo válido", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -166,7 +181,6 @@ public class AGtarea extends Fragment {
         editTextNombreTarea.setText("");
         editTextDescripcion.setText("");
         editTextFechaEntrega.setText("");
-
         spinnerRamos.setSelection(0);
     }
 
