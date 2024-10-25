@@ -7,9 +7,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_proyectos"
-        android:layout_width="358dp"
-        android:layout_height="374dp"
-        android:background="@color/white"
+        android:layout_width="359dp"
+        android:layout_height="490dp"
+        android:background="@color/black"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

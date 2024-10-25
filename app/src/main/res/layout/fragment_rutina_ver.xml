@@ -72,5 +72,21 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_eliminar"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Eliminar Rutina"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
 </LinearLayout>
 

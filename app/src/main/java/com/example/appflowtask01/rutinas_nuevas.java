@@ -59,21 +59,4 @@ public class rutinas_nuevas extends Fragment {
     }
 }
 
-class Estudio_Rutina {
-    private String nombre;
-    private int tiempoEstudio;
-    private int tiempoDescanso;
-    private int intervaloDescanso;
-
-    // Constructor
-    public Estudio_Rutina(String nombre, int tiempoEstudio, int tiempoDescanso, int intervaloDescanso) {
-        this.nombre = nombre;
-        this.tiempoEstudio = tiempoEstudio;
-        this.tiempoDescanso = tiempoDescanso;
-        this.intervaloDescanso = intervaloDescanso;
-    }
-
-    // Getters y setters (si son necesarios)
-}
-
 

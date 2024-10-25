@@ -29,6 +29,7 @@ public class notasNuevas extends DialogFragment {
     ImageButton btnNt;
     EditText ntDesc, nTtitulo;
     private FirebaseFirestore mfirestore;
+    private String notaId;  // ID de la nota para actualizar si existe
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,16 @@ public class notasNuevas extends DialogFragment {
         ntDesc = v.findViewById(R.id.descNt);
         btnNt = v.findViewById(R.id.btnIngNt);
 
+        // Verificar si se recibieron datos de una nota existente
+        if (getArguments() != null) {
+            notaId = getArguments().getString("id");
+            String titulo = getArguments().getString("titulo");
+            String descripcion = getArguments().getString("descripcion");
+
+            nTtitulo.setText(titulo);
+            ntDesc.setText(descripcion);
+        }
+
         ntDesc.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         ntDesc.setLines(300);
         ntDesc.setVerticalScrollBarEnabled(true);
@@ -60,7 +71,11 @@ public class notasNuevas extends DialogFragment {
                 if (tituloN.isEmpty() || descN.isEmpty()) {
                     Toast.makeText(getContext(), "Por favor, ingresa todos los datos", Toast.LENGTH_SHORT).show();
                 } else {
-                    nuevaNt(tituloN, descN);
+                    if (notaId != null) {
+                        actualizarNota(notaId, tituloN, descN); // Si la nota ya existe, actualizar
+                    } else {
+                        nuevaNt(tituloN, descN);  // Si es una nueva nota, crear
+                    }
                 }
             }
         });
@@ -78,7 +93,6 @@ public class notasNuevas extends DialogFragment {
             public void onSuccess(DocumentReference documentReference) {
                 Toast.makeText(getContext(), "Nota guardada exitosamente", Toast.LENGTH_SHORT).show();
 
-                // Cerrar el diálogo para regresar al fragmento anterior
                 if (getDialog() != null) {
                     getDialog().dismiss();
                 }
@@ -88,6 +102,28 @@ public class notasNuevas extends DialogFragment {
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getContext(), "Error al guardar la nota", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
+            }
+        });
+    }
+
+    private void actualizarNota(String id, String tituloN, String descN) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("Titulo", tituloN);
+        map.put("Descripcion", descN);
+
+        mfirestore.collection("Notas").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(getContext(), "Nota actualizada exitosamente", Toast.LENGTH_SHORT).show();
+
+                if (getDialog() != null) {
+                    getDialog().dismiss();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Error al actualizar la nota", Toast.LENGTH_SHORT).show();
             }
         });
     }

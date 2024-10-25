@@ -8,15 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appflowtask01.R;
+import com.example.appflowtask01.models.Tarea;
 
 import java.util.List;
 
 public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewHolder> {
 
-    private List<String> listaTareas;
+    private List<Tarea> tareaList;
 
-    public TareasAdapter(List<String> listaTareas) {
-        this.listaTareas = listaTareas;
+    public TareasAdapter(List<Tarea> tareaList) {
+        this.tareaList = tareaList;
     }
 
     @NonNull
@@ -28,22 +29,32 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
 
     @Override
     public void onBindViewHolder(@NonNull TareaViewHolder holder, int position) {
-        String tarea = listaTareas.get(position);
-        holder.textViewTarea.setText(tarea);
+        Tarea tarea = tareaList.get(position);
+        holder.bind(tarea);
     }
 
     @Override
     public int getItemCount() {
-        return listaTareas.size();
+        return tareaList.size();
     }
 
-    static class TareaViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewTarea;
+    public static class TareaViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView textViewNombreTarea;
+        private TextView textViewDescripcion;
+        private TextView textViewFechaEntrega;
 
         public TareaViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewTarea = itemView.findViewById(R.id.text_view_tarea);
+            textViewNombreTarea = itemView.findViewById(R.id.text_view_nombre_tarea);
+            textViewDescripcion = itemView.findViewById(R.id.text_view_descripcion);
+            textViewFechaEntrega = itemView.findViewById(R.id.text_view_fecha_entrega);
+        }
+
+        public void bind(Tarea tarea) {
+            textViewNombreTarea.setText(tarea.getNombreTarea());
+            textViewDescripcion.setText(tarea.getDescripcion());
+            textViewFechaEntrega.setText(tarea.getFechaEntrega());
         }
     }
 }
-

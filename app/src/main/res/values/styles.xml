@@ -1,0 +1,6 @@
+<resources>
+    <!-- Estilo personalizado para el texto del Toolbar -->
+    <style name="CustomToolbarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textSize">3sp</item> <!-- Cambia este valor según el tamaño que desees -->
+    </style>
+</resources>

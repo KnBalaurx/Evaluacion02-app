@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appflowtask01.models.EstudioRutina;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,11 +22,12 @@ public class rutina_ver extends Fragment {
 
     private TextView tvNombreRutina, tvTiempoEstudio, tvTiempoDescanso, tvIntervaloDescanso;
     private Chronometer chronometer;
-    private Button btnIniciar;
+    private Button btnIniciar, btnEliminar;
     private boolean isRunning = false;
     private long pauseOffset = 0;
 
     private FirebaseFirestore db;
+    private String nombreRutinaActual; // Variable para almacenar el nombre de la rutina actual
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,14 +40,15 @@ public class rutina_ver extends Fragment {
         tvIntervaloDescanso = view.findViewById(R.id.tv_intervalo_descanso);
         chronometer = view.findViewById(R.id.chronometer);
         btnIniciar = view.findViewById(R.id.btn_iniciar);
+        btnEliminar = view.findViewById(R.id.btn_eliminar); // Inicializar el botón de eliminar
 
         db = FirebaseFirestore.getInstance();
 
         // Obtener el nombre de la rutina del bundle
         Bundle bundle = getArguments();
         if (bundle != null) {
-            String nombreRutina = bundle.getString("nombre_rutina");
-            cargarRutina(nombreRutina);
+            nombreRutinaActual = bundle.getString("nombre_rutina");
+            cargarRutina(nombreRutinaActual);
         }
 
         // Listener para iniciar el cronómetro
@@ -62,6 +65,9 @@ public class rutina_ver extends Fragment {
                 btnIniciar.setText("Iniciar");
             }
         });
+
+        // Listener para eliminar la rutina
+        btnEliminar.setOnClickListener(v -> eliminarRutina());
 
         return view;
     }
@@ -81,4 +87,25 @@ public class rutina_ver extends Fragment {
                     }
                 });
     }
+
+    // Método para eliminar la rutina desde Firestore
+    private void eliminarRutina() {
+        if (nombreRutinaActual != null) {
+            db.collection("Rutinas").whereEqualTo("nombre", nombreRutinaActual).get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                            String documentId = queryDocumentSnapshots.getDocuments().get(0).getId();
+                            db.collection("Rutinas").document(documentId).delete()
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(getContext(), "Rutina eliminada", Toast.LENGTH_SHORT).show();
+                                        getActivity().onBackPressed(); // Regresar a la pantalla anterior
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(getContext(), "Error al eliminar la rutina", Toast.LENGTH_SHORT).show();
+                                    });
+                        }
+                    });
+        }
+    }
 }
+

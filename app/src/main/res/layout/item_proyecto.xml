@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@color/gris"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -9,40 +11,45 @@
         android:id="@+id/titulo_proyecto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
         android:text="Título"
-        android:textSize="18sp"
-        android:textColor="#000000" />
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/descripcion_proyecto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="Descripción"
-        android:textSize="14sp"
-        android:textColor="#000000" />
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/fecha_entrega_proyecto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="Fecha Entrega"
-        android:textSize="14sp"
-        android:textColor="#000000" />
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/cantidad_integrantes_proyecto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="Cantidad de Integrantes"
-        android:textSize="14sp"
-        android:textColor="#000000" />
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/ramo_proyecto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ramo"
-        android:textSize="14sp"
-        android:textColor="#000000" />
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 </LinearLayout>
 

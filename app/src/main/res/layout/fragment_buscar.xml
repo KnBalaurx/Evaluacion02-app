@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Buscar" >
+    tools:context=".Buscar">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,19 +13,20 @@
         android:orientation="vertical">
 
         <SearchView
+            android:id="@+id/searchView"
             android:layout_width="319dp"
             android:layout_height="41dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/gris"
-            android:closeIcon="@color/white" />
+            android:iconifiedByDefault="false"
+            android:queryHint="Buscar ramo"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/cyan" />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

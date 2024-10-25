@@ -11,20 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appflowtask01.models.Ramo;
 import com.example.appflowtask01.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RamoAdapter extends RecyclerView.Adapter<RamoAdapter.RamoViewHolder> {
-
     private List<Ramo> ramoList;
-    private OnRamoClickListener onRamoClickListener;
+    private List<Ramo> ramoListFull; // Lista completa para restaurar después de la búsqueda
+    private OnItemClickListener listener;
 
-    public interface OnRamoClickListener {
-        void onRamoClick(Ramo ramo);
+    public interface OnItemClickListener {
+        void onItemClick(Ramo ramo);
     }
 
-    public RamoAdapter(List<Ramo> ramoList, OnRamoClickListener listener) {
+    public RamoAdapter(List<Ramo> ramoList, OnItemClickListener listener) {
         this.ramoList = ramoList;
-        this.onRamoClickListener = listener;
+        this.ramoListFull = new ArrayList<>(ramoList); // Copia de la lista completa
+        this.listener = listener;
     }
 
     @NonNull
@@ -37,8 +39,7 @@ public class RamoAdapter extends RecyclerView.Adapter<RamoAdapter.RamoViewHolder
     @Override
     public void onBindViewHolder(@NonNull RamoViewHolder holder, int position) {
         Ramo ramo = ramoList.get(position);
-        holder.textViewRamo.setText(ramo.getNombreRamo());
-        holder.itemView.setOnClickListener(v -> onRamoClickListener.onRamoClick(ramo));
+        holder.bind(ramo, listener);
     }
 
     @Override
@@ -47,12 +48,32 @@ public class RamoAdapter extends RecyclerView.Adapter<RamoAdapter.RamoViewHolder
     }
 
     public static class RamoViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewRamo;
+        TextView nombreRamoTextView;
 
         public RamoViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewRamo = itemView.findViewById(R.id.textViewRamo);
+            nombreRamoTextView = itemView.findViewById(R.id.textViewRamo);
+        }
+
+        public void bind(final Ramo ramo, final OnItemClickListener listener) {
+            nombreRamoTextView.setText(ramo.getNombreRamo());
+            itemView.setOnClickListener(v -> listener.onItemClick(ramo));
         }
     }
-}
 
+    // Método para filtrar la lista según el nombre del ramo
+    public void filter(String text) {
+        ramoList.clear();
+        if (text.isEmpty()) {
+            ramoList.addAll(ramoListFull);
+        } else {
+            text = text.toLowerCase();
+            for (Ramo ramo : ramoListFull) {
+                if (ramo.getNombreRamo().toLowerCase().contains(text)) {
+                    ramoList.add(ramo);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+}
